@@ -21,6 +21,8 @@ EnableProxy = false
 #格式 "http://username:password@host:port"
 #格式 "https://username:password@host:port"
 ProxyUrl = "socks5://username:password@host:port"
+#请求超时时间
+RequestTimeout = 10
 #Javbus网址列表
 JavbusUrls = ["https://www.javbus.com/","https://www.seejav.bid/"]
 #浏览器user-agent列表

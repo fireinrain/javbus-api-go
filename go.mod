@@ -3,6 +3,7 @@ module javbus-api-go
 go 1.21.0
 
 require (
+	github.com/carlmjohnson/requests v0.23.5
 	github.com/gin-gonic/gin v1.9.1
 	github.com/pelletier/go-toml v1.9.5
 	github.com/swaggo/files v1.0.1

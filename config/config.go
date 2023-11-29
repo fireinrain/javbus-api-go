@@ -9,6 +9,8 @@ import (
 
 var GlobalConfig *Config
 
+var configFilePath = "../config.toml"
+
 type ServerConfig struct {
 	IP          string `toml:"IP"`
 	PORT        int    `toml:"PORT"`
@@ -23,11 +25,12 @@ type ServerConfig struct {
 }
 
 type JavbusSiteConfig struct {
-	EnableProxy bool     `toml:"EnableProxy"`
-	ProxyUrl    string   `toml:"ProxyUrl"`
-	JavbusUrls  []string `toml:"JavbusUrls"`
-	UserAgents  []string `toml:"UserAgents"`
-	UserCookies []struct {
+	EnableProxy    bool     `toml:"EnableProxy"`
+	ProxyUrl       string   `toml:"ProxyUrl"`
+	RequestTimeout int      `toml:"RequestTimeout"`
+	JavbusUrls     []string `toml:"JavbusUrls"`
+	UserAgents     []string `toml:"UserAgents"`
+	UserCookies    []struct {
 		Username string `toml:"username"`
 		Cookies  string `toml:"cookies"`
 	} `toml:"UserCookies"`
@@ -69,7 +72,6 @@ func NewConfig(configFile string) *Config {
 	return config
 }
 
-//func init() {
-//	configFile := "config.toml"
-//	GlobalConfig = NewConfig(configFile)
-//}
+func init() {
+	GlobalConfig = NewConfig(configFilePath)
+}
