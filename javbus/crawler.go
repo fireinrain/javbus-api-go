@@ -226,7 +226,9 @@ func GetStarInfo(starID string, movieType MovieType) (StarInfo, error) {
 	go func() {
 		defer wg.Done()
 		var respText string
-		err := HttpClient.BaseURL(url).ToString(&respText).Fetch(context.Background())
+		err := HttpClient.BaseURL(url).
+			ToString(&respText).
+			Fetch(context.Background())
 		if err != nil {
 			errorCh <- err
 			return
